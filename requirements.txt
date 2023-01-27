@@ -1,0 +1,4 @@
+tweepy
+pandas
+requests
+streamlit
