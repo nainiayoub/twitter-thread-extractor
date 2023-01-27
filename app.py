@@ -4,7 +4,7 @@ import tweepy
 from streamlit.components.v1 import html
 import streamlit.components.v1 as components
 import requests
-from functions import extract_all_tweets, extract_threads, convert_df, theTweet
+from functions import extract_all_tweets, extract_threads, convert_df, theTweet, footer
 
 ######################### Keys #########################################
 
@@ -31,9 +31,7 @@ html_temp = """
                     </div>
                     """
 
-button = """
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="nainiayoub" data-color="#5F7FFF" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
-"""
+
 
 hide="""
 <style>
@@ -60,7 +58,7 @@ st.markdown("<h1 style='text-align: center'><span style='color: #1DA1F2'>Twitter
 st.markdown("<p style='text-align: center'>Extracting Twitter threads from Twitter profiles.</p>", unsafe_allow_html=True)
 
 username = st.text_input("Enter Twitter username", placeholder="Twitter username", disabled=False)
-# 
+footer()
 
 
 st.markdown(
@@ -110,91 +108,3 @@ if username:
         option = st.selectbox("Choose your Twitter thread", url_threads)
         res = theTweet(option)
         components.html(res, height=700)
-else:
-    st.markdown('''
-    <a target="_blank" style="color: black" href="https://www.github.com/nainiayoub">
-        <button class="btn-github">
-            <i>GitHub</i>
-        </button>
-    </a>
-
-    <a target="_blank" style="color: black" href="https://twitter.com/nainia_ayoub">
-        <button class="btn-twitter">
-            <i>Twitter</i>
-        </button>
-    </a>
-    
-
-
-    <style>
-    .btn-github{
-        display: inline-flex;
-        -moz-box-align: center;
-        align-items: center;
-        -moz-box-pack: center;
-        justify-content: center;
-        font-weight: 400;
-        padding: 0.25rem 0.75rem;
-        border-radius: 0.25rem;
-        margin: 0px;
-        line-height: 1.6;
-        color: #fff;
-        text-weight: bold;
-        background-color: #000 ;
-        width: auto;
-        user-select: none;
-        border: 1px solid #000 ;
-        }
-    .btn-github:hover{
-        color: #000 ;
-        background-color: #fff;
-    }
-    .btn-linkedin{
-        display: inline-flex;
-        -moz-box-align: center;
-        align-items: center;
-        -moz-box-pack: center;
-        justify-content: center;
-        font-weight: 400;
-        padding: 0.25rem 0.75rem;
-        border-radius: 0.25rem;
-        margin: 0px;
-        line-height: 1.6;
-        color: #000;
-        text-weight: bold;
-        background-color: #f7d501 ;
-        width: auto;
-        user-select: none;
-        border: 1px solid #f7d501 ;
-        }
-    .btn-linkedin:hover{
-        color: #f7d501 ;
-        background-color: #fff;
-    }
-    .btn-twitter{
-        display: inline-flex;
-        -moz-box-align: center;
-        align-items: center;
-        -moz-box-pack: center;
-        justify-content: center;
-        font-weight: 400;
-        padding: 0.25rem 0.75rem;
-        border-radius: 0.25rem;
-        margin: 0px;
-        line-height: 1.6;
-        color: #fff;
-        text-weight: bold;
-        background-color: rgb(29, 161, 242) ;
-        width: auto;
-        user-select: none;
-        border: 1px solid rgb(29, 161, 242) ;
-        }
-    .btn-twitter:hover{
-        color: rgb(29, 161, 242) ;
-        background-color: #fff;
-    }
-    </style>
-    ''',
-    unsafe_allow_html=True
-    )
-        
