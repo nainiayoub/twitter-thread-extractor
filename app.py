@@ -44,6 +44,9 @@ footer{
 .viewerBadge_container__1QSob{
     visibility: hidden;
 }
+.viewerBadge_link__1S137{
+    visibility: hidden;
+}
 #MainMenu{
 	visibility: hidden;
 }
