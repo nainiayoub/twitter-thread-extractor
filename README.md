@@ -2,7 +2,7 @@
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://twitter-thread-extractor.streamlit.app/)
 ![visitor badge](https://visitor-badge.glitch.me/badge?page_id=nainiayoub.twitter-thread-extractor)
 ![forks badge](https://img.shields.io/github/forks/nainiayoub/twitter-thread-extractor)
-![starts badge](https://img.shields.io/github/stars/nainiayoub/twitter-thread-extractor?style=social)
+![stars badge](https://img.shields.io/github/stars/nainiayoub/twitter-thread-extractor)
 
 Twitter Thread Extractor is a web app that extracts your twitter threads into a downloadable CSV file.
 
