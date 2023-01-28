@@ -57,7 +57,7 @@ st.markdown(hide, unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center'><span style='color: #1DA1F2'>Twitter</span> Thread Extractor</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center'>Extracting Twitter threads from Twitter profiles.</p>", unsafe_allow_html=True)
 
-username = st.text_input("Enter Twitter username", placeholder="Twitter username", disabled=False)
+username_url = st.text_input("Enter your Twitter URL", placeholder="https://twitter.com/elonmusk", disabled=False)
 footer()
 
 
@@ -74,37 +74,42 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-if username:
-    df = extract_all_tweets(username)
-    if not df.empty:
-        df_threads = extract_threads(df, username)
-        message = str(len(list(df_threads['Thread URL'])))+" threads by @"+username
-        
-        # section 1: Download threads 
-        
-        st.markdown("""
-        ### Download threads
-        """)
-        st.info(message)
-        with st.expander("Your extracted Twitter threads"):
-            st.dataframe(df_threads)
+if username_url:
+    username = username_url.split('/')[-1]
+    if 'https://twitter.com/' in username_url and username not in 'https://twitter.com/' and " " not in username:
+        df = extract_all_tweets(username)
+        if not df.empty:
+            df_threads = extract_threads(df, username)
+            message = str(len(list(df_threads['Thread URL'])))+" threads by @"+username
+            
+            # section 1: Download threads 
+            
+            st.markdown("""
+            ### Download threads
+            """)
+            st.info(message)
+            with st.expander("Your extracted Twitter threads"):
+                st.dataframe(df_threads)
 
-            csv = convert_df(df_threads)
-            file_name_value = username+"_threads.csv"
+                csv = convert_df(df_threads)
+                file_name_value = username+"_threads.csv"
 
-        st.download_button(
-            label="Download as CSV",
-            data=csv,
-            file_name=file_name_value,
-            mime='text/csv',
-        )
+            st.download_button(
+                label="Download as CSV",
+                data=csv,
+                file_name=file_name_value,
+                mime='text/csv',
+            )
 
-        # section 2: display threads
+            # section 2: display threads
 
-        st.markdown("""
-        ### Display threads
-        """)
-        url_threads = list(df_threads['Thread URL']) 
-        option = st.selectbox("Choose your Twitter thread", url_threads)
-        res = theTweet(option)
-        components.html(res, height=700)
+            st.markdown("""
+            ### Display threads
+            """)
+            url_threads = list(df_threads['Thread URL']) 
+            option = st.selectbox("Choose your Twitter thread", url_threads)
+            res = theTweet(option)
+            components.html(res, height=700)
+
+    else:
+        st.error("Enter a valid Twitter URL")
