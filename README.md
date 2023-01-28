@@ -17,8 +17,8 @@ https://user-images.githubusercontent.com/50157142/215259875-67181de4-0263-430f-
 * Enter a twitter username in the input text field.
 * Download your threads as CSV.
 
-|Thread URL | Tweet | Author | Number of citations | Publication site | URL of the paper |
-| --------- | ----- | ------ | ------------------- | ---------------- | ---------------- |
+|Thread URL | Tweet | Date | Favorites | Retweets | 
+| --------- | ----- | ------ | ------------------- | ---------------- |
 
 * Choose a thread  from the extracted ones to display on the app.
 
