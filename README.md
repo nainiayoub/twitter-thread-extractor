@@ -14,11 +14,11 @@ Twitter Thread Extractor is a web app that extracts your twitter threads into a 
 https://user-images.githubusercontent.com/50157142/215259875-67181de4-0263-430f-ba02-d40040e03a92.mp4
 
 ## How does it work?
-* Enter a twitter username in the input text field.
+* Enter your twitter profile URL in the input text field.
 * Download your threads as CSV.
 
 |Thread URL | Tweet | Date | Favorites | Retweets | 
-| --------- | ----- | ------ | ------------------- | ---------------- |
+| --------- | ----- | ---- | --------- | -------- |
 
 * Choose a thread  from the extracted ones to display on the app.
 
