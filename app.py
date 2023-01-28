@@ -58,6 +58,21 @@ st.markdown("<h1 style='text-align: center'><span style='color: #1DA1F2'>Twitter
 st.markdown("<p style='text-align: center'>Extracting Twitter threads from Twitter profiles.</p>", unsafe_allow_html=True)
 
 username_url = st.text_input("Enter your Twitter URL", placeholder="https://twitter.com/elonmusk", disabled=False)
+st.markdown("""
+<details>
+<summary><b>You have more than 3200 tweets?</b></summary>
+DM me on <a href="https://twitter.com/nainia_ayoub"><i>@nainia_ayoub</i></a> to extract all your threads!
+</details>
+
+<style>
+    summary:hover{
+        color: #1da1f2;
+    }
+</style>
+    
+"""
+,
+unsafe_allow_html=True,)
 footer()
 
 
