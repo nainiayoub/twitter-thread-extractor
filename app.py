@@ -61,7 +61,7 @@ username_url = st.text_input("Enter your Twitter URL", placeholder="https://twit
 st.markdown("""
 <details>
 <summary><b>You have more than 3200 tweets?</b></summary>
-DM me on <a href="https://twitter.com/nainia_ayoub"><i>@nainia_ayoub</i></a> to extract all your threads!
+DM me on <a href="https://twitter.com/nainia_ayoub"><i>@nainia_ayoub</i></a> to extract all your threads and tweets!
 </details>
 
 <style>
