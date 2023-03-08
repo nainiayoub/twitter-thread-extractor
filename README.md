@@ -10,6 +10,8 @@ Twitter Thread Extractor is a web app that extracts your twitter threads into a 
 * [How does it work?](#how-does-it-work)
 * [How to support the project?](#how-to-support-the-project)
 
+_Featured on [Streamlit Weekly Roundup](https://discuss.streamlit.io/t/weekly-roundup-dungeon-games-question-answering-tools-scientific-publication-searches-and-more/38454) for NLP & Language :balloon:_
+
 ## Demo
 https://user-images.githubusercontent.com/50157142/215259875-67181de4-0263-430f-ba02-d40040e03a92.mp4
 
