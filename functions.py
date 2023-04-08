@@ -62,7 +62,7 @@ def extract_all_tweets(username):
 def convert_to_int(num):
     return int(float(num))
     
-@st.cache
+@st.cache_data
 def extract_threads(df, username):
     df['replied to'] = df['replied to'].fillna(0)
     # potential root tweets in a thread
@@ -89,7 +89,7 @@ def extract_threads(df, username):
     df_threads = pd.DataFrame(list(zip(threads_url, tweets, dates, favs, rts)), columns = ['Thread URL', 'Tweet', 'Date', 'Favorites', 'Retweets'])
     return df_threads
 
-@st.cache
+@st.cache_data
 def convert_df(df):
   # IMPORTANT: Cache the conversion to prevent computation on every rerun
   return df.to_csv().encode('utf-8')
