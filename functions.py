@@ -25,8 +25,8 @@ def extract_all_tweets(username):
     id_replies = []
     for user_tweet in user_tweets:
         status_id = user_tweet.id
-        id_replies.append(user_tweet.in_reply_to_status_id)
-        ids.append(status_id)
+        id_replies.append(str(user_tweet.in_reply_to_status_id))
+        ids.append(str(status_id))
         # if user_tweet.lang != "fr" and user_tweet.lang != "en":
         dates.append(user_tweet.created_at)
         favs.append(user_tweet.favorite_count)
@@ -43,8 +43,8 @@ def extract_all_tweets(username):
         #save most recent tweets
         for user_tweet in user_tweets:
             status_id = user_tweet.id
-            ids.append(status_id)
-            id_replies.append(user_tweet.in_reply_to_status_id)
+            ids.append(str(status_id))
+            id_replies.append(str(user_tweet.in_reply_to_status_id))
             dates.append(user_tweet.created_at)
             favs.append(user_tweet.favorite_count)
             user_name.append(user_tweet.user.screen_name)
@@ -65,9 +65,8 @@ def convert_to_int(num):
 @st.cache
 def extract_threads(df, username):
     df['replied to'] = df['replied to'].fillna(0)
-    df['replied to'] = df['replied to'].apply(convert_to_int)
     # potential root tweets in a thread
-    df_root_tweets = df[df['replied to'] == 0]
+    df_root_tweets = df[df['replied to'] == 'None']
     ids = list(df_root_tweets['status id'])
     threads_url = []
     tweets = []
